@@ -499,7 +499,7 @@ html, body{
     position: relative;
     left: 27vw;
     bottom: 3vw;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .lower .left p{

@@ -264,7 +264,6 @@ function anim(){
             start: "top -2%",
             end: "top -5%",
             scrub: 2,
-            markers: true,
         },
         opacity: 0,
     })
