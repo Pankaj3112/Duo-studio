@@ -1,4 +1,3 @@
-
 var cursor = document.querySelector('.cursor');
 var main = document.querySelector('.main');
 var videos = document.querySelectorAll('video');
@@ -7,6 +6,34 @@ var rows = document.querySelectorAll('.page5 .row');
 var navElements = document.querySelectorAll('#nav h4');
 var navhover = document.querySelector('#nav-hover');
 var navhoverH1 = document.querySelectorAll('#nav-hover h1');
+var scrollIcon = document.querySelector('.icon-scroll');
+
+
+function init() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const locoScroll = new LocomotiveScroll({
+    el: document.querySelector(".main"),
+    smooth: true
+    });
+    locoScroll.on("scroll", ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy(".main", {
+    scrollTop(value) {
+        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+    }, 
+    getBoundingClientRect() {
+        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+    },
+    pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+    });
+
+
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+    ScrollTrigger.refresh();
+}
+init();
 
 
 document.addEventListener('mousemove', function(e){
@@ -139,7 +166,6 @@ document.querySelector(".lower h1").addEventListener("mouseleave", function(){
 
 
 //-----------------Magnetic effect-------------->
-
 //write an effect on which the element will move towards the cursor when the cursor is near it
 
 function magneticEffect( element, distance){
@@ -166,52 +192,83 @@ function magneticEffect( element, distance){
 
     if(distanceX < distance && distanceY < distance){
         element.style.transform = `translate(${x/2}px, ${y/2}px)`;
-        element.children[0].style.transform = `translate(${x/8}px, ${y/8}px)`;
+        element.children[0].style.transform = `translate(${x/11}px, ${y/11}px)`;
         element.classList.add('focus');
         cursor.style.opacity = "0";
     }
-    else{
-        element.style.transform = `translate(0px, 0px)`;
+    else if(element.classList.contains('focus')){
+        //make it bounce a little and then return to its original state
         element.children[0].style.transform = `translate(0px, 0px)`;
-        element.classList.remove('focus');
         cursor.style.opacity = "1";
+        element.classList.remove('focus');
+
+        //bouncing animation
+        var bounce = gsap.timeline();
+        bounce.to(element, {
+            x: -x/3,
+            y: -y/3,
+            linear: true,
+            duration: 0.2,
+        })
+        bounce.to(element, {
+            x: x/4,
+            y: y/4,
+            linear: true,
+            duration: 0.2,
+        })
+        bounce.to(element, {
+            x: 0,
+            y: 0,
+            linear: true,
+            duration: 0.1,
+        })
+
+        //--------------also move text---------------
+        var bounceText = gsap.timeline();
+        let text = element.children[0];
+
+        bounceText.to(text, {
+            x: -x/14,
+            y: -y/14,
+            linear: true,
+            duration: 0.2,
+        })
+        bounceText.to(text, {
+            x: x/20,
+            y: y/20,
+            linear: true,
+            duration: 0.2,
+        })
+        bounceText.to(text, {
+            x: 0,
+            y: 0,
+            linear: true,
+            duration: 0.1,
+        })
+
     }
 }
 
 document.addEventListener('mousemove', function(e){
-    magneticEffect(document.querySelector('.footer .circle'), 150);
+    magneticEffect(document.querySelector('.footer .circle'), 100);
 })
 
 
-function init() {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const locoScroll = new LocomotiveScroll({
-    el: document.querySelector(".main"),
-    smooth: true
-    });
-    locoScroll.on("scroll", ScrollTrigger.update);
-
-    ScrollTrigger.scrollerProxy(".main", {
-    scrollTop(value) {
-        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-    }, 
-    getBoundingClientRect() {
-        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-    },
-    pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
-    });
-
-
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-    ScrollTrigger.refresh();
-}
-
-init();
-
-
+//------------------Animations------------------>
 function anim(){
+
+    gsap.to(scrollIcon, {
+        scrollTrigger: {
+            trigger: ".page1",
+            scroller: ".main",
+            start: "top -2%",
+            end: "top -5%",
+            scrub: 2,
+            markers: true,
+        },
+        opacity: 0,
+    })
+
     var tl = gsap.timeline({
         scrollTrigger: {
             trigger: ".page1 h1",
@@ -303,9 +360,9 @@ function anim(){
         y:"-41vh",
     }, "start")
 
-    // tl5.to(".page5",{
-    //     filter: "blur(4px)",
-    // }, "start")
+    tl5.to(".page5",{
+        filter: "blur(4px)",
+    }, "start")
 
 
     // <--------------------Animations at start_------------------>
