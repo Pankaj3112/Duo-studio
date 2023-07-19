@@ -233,6 +233,12 @@ html, body{
     font-size: 18px;
 }
 
+.page2-right button:hover{
+    background-color: #111;
+    color: #fff;
+    transition: all 0.3s;
+}
+
 
 .page3{
     min-height: 100vh;
@@ -512,7 +518,7 @@ html, body{
 }
 
 .focus{
-    color: white;
+    color: white!important;
     background-color: #111!important;
     transition: all 0.2s;
     cursor: pointer;
