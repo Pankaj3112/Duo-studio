@@ -294,18 +294,18 @@ function anim(){
             trigger: ".page5 .special",
             scroller: ".main",
             start: "top -15%",
-            end: "top -40%",
+            end: "max 100%",
             scrub: 3,
         }
     })
 
     tl5.to(".footer", {
-        y:"-41%",
+        y:"-41vh",
     }, "start")
 
-    tl5.to(".page5",{
-        filter: "blur(4px)",
-    }, "start")
+    // tl5.to(".page5",{
+    //     filter: "blur(4px)",
+    // }, "start")
 
 
     // <--------------------Animations at start_------------------>
