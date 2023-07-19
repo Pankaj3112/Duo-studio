@@ -165,6 +165,7 @@ document.querySelector(".lower h1").addEventListener("mouseleave", function(){
 });
 
 
+
 //-----------------Magnetic effect-------------->
 //write an effect on which the element will move towards the cursor when the cursor is near it
 
