@@ -112,7 +112,6 @@ images.forEach((img) => {
 //------------------------cursor effect on rows--------------------->
 
 function cursorOnRows(img){
-    cursor.innerHTML = `<img src="${img}" alt="img">`;
     cursor.classList.add('cursor-blend');
     cursor.classList.add('cursor-img');
     cursor.style.backgroundImage = `url(${img})`;
@@ -129,7 +128,6 @@ rows.forEach((row, index) => {
 
 rows.forEach((row) => {
     row.addEventListener('mouseleave', function(){
-        cursor.innerHTML = "";
         cursor.classList.remove('cursor-blend');
         cursor.classList.remove('cursor-img');
         cursor.style.backgroundImage = "";

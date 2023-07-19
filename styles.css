@@ -37,8 +37,8 @@ html, body{
 }
 
 .cursor-img{
-    width: 460px;
-    height: 320px;
+    width: 450px;
+    height: 350px;
     overflow: hidden;
     border-radius: 0;
     background-size: cover;
