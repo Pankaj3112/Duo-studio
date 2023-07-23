@@ -1,9 +1,13 @@
+@font-face {
+    font-family: PP mori;
+    src: url(./ppmori.ttf);
+}
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: PP Mori, sans-serif;
+    font-family: PP Mori sans-serif;
 }
 
 html, body{
