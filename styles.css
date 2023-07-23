@@ -7,12 +7,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "PP Mori" ,sans-serif;
+    font-family: "PP mori";
 }
 
 html, body{
     height: 100%;
     width: 100%;
+    font-family: "PP mori";
     /* cursor: none; */
 }
 
