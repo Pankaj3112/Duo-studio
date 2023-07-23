@@ -1,5 +1,5 @@
 @font-face {
-    font-family: PP mori;
+    font-family: "PP mori";
     src: url(./ppmori.ttf);
 }
 
@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: PP Mori sans-serif;
+    font-family: "PP Mori" ,sans-serif;
 }
 
 html, body{
@@ -159,7 +159,6 @@ html, body{
 
 .page1 h1{
     font-size: 8vw;
-    font-family: PP mori;
     font-weight: 400;
     margin-left: 8vw;
     position: relative;
@@ -168,7 +167,6 @@ html, body{
 
 .page1 h2{
     font-size: 8vw;
-    font-family: PP mori;
     font-weight: 400;
     margin-left: 22vw;
     position: relative;
