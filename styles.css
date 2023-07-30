@@ -42,8 +42,8 @@ html, body{
 }
 
 .cursor-img{
-    width: 450px;
-    height: 350px;
+    width: 405px;
+    height: 315px;
     overflow: hidden;
     border-radius: 0;
     background-size: cover;
@@ -437,11 +437,7 @@ html, body{
 .footer{
     width: 100%;
     height: 150vh;
-    /* min-height: 100vh; */
     background-color: #EDBFFF;
-    /* position: absolute; */
-    /* bottom: -100vh; */
-    /* overflow: hidden; */
     padding: 7vw 6vw;
 }
 
