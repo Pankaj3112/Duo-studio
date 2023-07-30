@@ -344,25 +344,6 @@ function anim(){
     })
 
 
-    var tl5 = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".page5 .special",
-            scroller: ".main",
-            start: "top -15%",
-            end: "max 100%",
-            scrub: 3,
-        }
-    })
-
-    tl5.to(".footer", {
-        y:"-41vh",
-    }, "start")
-
-    tl5.to(".page5",{
-        filter: "blur(4px)",
-    }, "start")
-
-
     // <--------------------Animations at start_------------------>
 
     var atStart = gsap.timeline({
