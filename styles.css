@@ -436,7 +436,8 @@ html, body{
 
 .footer{
     width: 100%;
-    height: 141vh;
+    /* height: 100vh; */
+    min-height: 100vh;
     background-color: #EDBFFF;
     /* position: absolute; */
     /* bottom: -100vh; */
