@@ -45,7 +45,7 @@ html, body{
     width: 405px;
     height: 315px;
     overflow: hidden;
-    border-radius: 0;
+    border-radius: 15px;
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
