@@ -111,10 +111,21 @@ images.forEach((img) => {
 
 //------------------------cursor effect on rows--------------------->
 
+const preloadedImages = []; // Array to store preloaded images
+
+// Preload the images and store them in the array
+rows.forEach((row) => {
+    const img = new Image();
+    img.onload = () => {
+        preloadedImages.push(img); // Add the loaded image to the array
+    };
+    img.src = row.dataset.image;
+});
+
 function cursorOnRows(img){
     cursor.classList.add('cursor-blend');
     cursor.classList.add('cursor-img');
-    cursor.style.backgroundImage = `url(${img})`;
+    cursor.style.backgroundImage = `url(${img.src})`;
 }
 
 rows.forEach((row, index) => {
@@ -122,7 +133,7 @@ rows.forEach((row, index) => {
         return;
     }
     row.addEventListener('mouseenter', function(){
-        cursorOnRows(row.dataset.image);
+        cursorOnRows(preloadedImages[index - 1]); // Use the preloaded image from the array
     })  
 });
 
