@@ -110,6 +110,10 @@ images.forEach((img) => {
 
 
 //------------------------cursor effect on rows--------------------->
+rows.forEach((row) => {
+    const img = new Image();
+    img.src = row.dataset.image;
+});
 
 function cursorOnRows(img){
     cursor.classList.add('cursor-blend');
