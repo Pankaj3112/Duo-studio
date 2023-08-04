@@ -110,6 +110,10 @@ images.forEach((img) => {
 
 
 //------------------------cursor effect on rows--------------------->
+rows.forEach((row) => {
+    const img = new Image();
+    img.src = row.dataset.image;
+});
 
 const preloadedImages = []; // Array to store preloaded images
 
